@@ -1,0 +1,20 @@
+on:
+  fork:
+  push:
+  issues:
+    types: [opened]
+  issue_comment:
+  pull_request_target:
+  pull_request_review_comment:
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: EddieHubCommunity/gh-action-community/src/welcome@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: '<h1>It''s great having you contribute to this project</h1> Welcome to BumpIt! :nerd_face:'
+          footer: 'If you would like to continue contributing BumpIt!, please join our <a href="https://bumpit-bot.xyz/join">Discord Server</a>. Any questions let us know.'
+  
